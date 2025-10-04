@@ -8,10 +8,11 @@
   <style>
     body {
       font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(to right, #ffe4f1, #f8bbd0);
       margin: 0;
       padding: 0;
       color: #880e4f;
+      overflow-x: hidden;
+      transition: background 1s ease;
     }
     header {
       text-align: center;
@@ -97,13 +98,53 @@
       color: #6a1b9a;
       background-color: #fff0f6;
     }
+    .love-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ff8fa3;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .love-button:hover {
+      background-color: #ff6b89;
+    }
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 24px;
+      animation: floatUp 6s infinite ease-in;
+      color: #ff5e7e;
+      pointer-events: none;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+    }
+    .popup {
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff0f6;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      font-size: 18px;
+      color: #d81b60;
+      display: none;
+      z-index: 999;
+    }
   </style>
 </head>
 <body>
   <header>
-    <img src="i.imgur.com/3kXkK3D.jpeg" alt="Bé Minh Nguyệt" class="avatar" />
+    <img src="img/mn.jpg" alt="Bé Minh Nguyệt" class="avatar" />
     <h1>Thực Đơn Giảm Cân Cho Bé Minh Nguyệt 💖</h1>
-    <p class="chuc">💌 Chúc bé Minh Nguyệt giảm cân thành công, xinh đẹp rạng ngời! Anh Huyphat iu em 😘</p>
+    <p class="chuc">💌 Chúc bé Minh Nguyệt giảm cân thành công, xinh đẹp rạng ngời! Anh iu em 😘</p>
   </header>
 
   <select id="daySelector">
@@ -118,13 +159,38 @@
 
   <button onclick="sendLove()">💖 Gửi lời yêu thương</button>
   <div class="loveMessage" id="loveMessage"></div>
-
   <div class="menu" id="menuDisplay"></div>
+
+  <div class="popup" id="popup">💌 Bé Minh Nguyệt ơi, anh iu em nhiều lắm 😘</div>
 
   <footer>
     ✨ Bé Minh Nguyệt là công chúa xinh đẹp nhất hệ mặt trời ✨<br />
     Made with 💗 by anh Huyphat
   </footer>
+
+  <!-- Trái tim bay bay -->
+  <script>
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.innerText = '💗';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 800);
+  </script>
+
+  <!-- Nhạc nền -->
+<div style="text-align: center; margin-top: 30px;">
+  <button onclick="document.getElementById('bgMusic').play()">🎵 Phát nhạc</button>
+  <button onclick="document.getElementById('bgMusic').pause()">🔇 Tắt nhạc</button>
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="piano-love-song-six-398564.mp3" type="audio/mpeg">
+</audio>
+
+
 
   <script>
     const menus = {
@@ -172,14 +238,15 @@
       }
     };
 
-    const menuDisplay = document.getElementById("menuDisplay");
+   const menuDisplay = document.getElementById("menuDisplay");
     const daySelector = document.getElementById("daySelector");
     const loveMessage = document.getElementById("loveMessage");
+    const popup = document.getElementById("popup");
 
     function showMenu(day) {
       const meals = menus[day];
       menuDisplay.innerHTML = "";
-            for (let meal in meals) {
+      for (let meal in meals) {
         const div = document.createElement("div");
         div.className = "meal";
         div.innerHTML = `<h3>${meal}</h3><p>${meals[meal]}</p>`;
@@ -195,7 +262,8 @@
         "✨ Bé Nguyệt là ánh sáng của đời anh!",
         "🥰 Bé là lý do anh cười mỗi ngày!"
       ];
-      const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+      const randomMsg = messages[Math.floor(Math.random() *
+            messages.length)];
       loveMessage.innerText = randomMsg;
     }
 
@@ -205,8 +273,25 @@
     });
 
     showMenu("Thứ 2"); // hiển thị mặc định
+
+    // Hiện popup sau 10 giây
+    setTimeout(() => {
+      popup.style.display = "block";
+      setTimeout(() => {
+        popup.style.display = "none";
+      }, 5000);
+    }, 10000);
+
+    // Đổi nền theo thời gian
+    const hour = new Date().getHours();
+    if (hour >= 18 || hour < 6) {
+      document.body.style.background = "linear-gradient(to right, #d1c4e9, #b39ddb)";
+    } else {
+      document.body.style.background = "linear-gradient(to right, #ffe4f1, #f8bbd0)";
+    }
   </script>
 </body>
 </html>
+
 
 
