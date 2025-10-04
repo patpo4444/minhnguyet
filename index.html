@@ -1,164 +1,313 @@
 <!DOCTYPE html>
-<html lang="vi">
+< lang="vi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Thực Đơn Bé Minh Nguyệt 💖</title>
+  <title>Bé Minh Nguyệt 💖 Love App</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet" />
   <style>
-    body {
-      font-family: 'Quicksand', sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #880e4f;
-      overflow-x: hidden;
-      transition: background 1s ease;
-    }
-    header {
-      text-align: center;
-      padding: 20px;
-      background-color: #fff0f6;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    .avatar {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 4px solid #f48fb1;
-      object-fit: cover;
-      box-shadow: 0 0 15px #f06292;
-      margin-bottom: 10px;
-    }
-    h1 {
-      font-size: 24px;
-      margin: 10px 0;
-    }
-    p.chuc {
-      font-size: 16px;
-      color: #d81b60;
-      animation: fadeIn 2s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
-    select, button {
-      display: block;
-      width: 90%;
-      max-width: 400px;
-      margin: 15px auto;
-      padding: 10px;
-      font-size: 16px;
-      border-radius: 10px;
-      border: 2px solid #f06292;
-      background-color: #fff;
-      color: #d81b60;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    button:hover {
-      background-color: #fce4ec;
-    }
-    .menu {
-      max-width: 500px;
-      margin: 20px auto;
-      background-color: #ffffff;
-      padding: 20px;
-      border-radius: 20px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      border: 2px solid #f8bbd0;
-    }
-    .meal {
-      margin-bottom: 15px;
-      padding: 10px;
-      background-color: #fce4ec;
-      border-radius: 10px;
-      border-left: 5px solid #ec407a;
-    }
-    .meal h3 {
-      margin-bottom: 5px;
-      font-size: 18px;
-      color: #ad1457;
-    }
-    .meal p {
-      margin: 0;
-      font-size: 15px;
-    }
-    .loveMessage {
-      text-align: center;
-      font-size: 16px;
-      color: #c2185b;
-      margin-top: 10px;
-      animation: fadeIn 1s ease-in-out;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      color: #6a1b9a;
-      background-color: #fff0f6;
-    }
-    .heart {
-      position: fixed;
-      bottom: -20px;
-      font-size: 24px;
-      animation: floatUp 6s infinite ease-in;
-      color: #ff5e7e;
-      pointer-events: none;
-    }
-    @keyframes floatUp {
-      0% { transform: translateY(0) scale(1); opacity: 1; }
-      100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
-    }
-    .popup {
-      position: fixed;
-      top: 30%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: #fff0f6;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
-      font-size: 18px;
-      color: #d81b60;
-      display: none;
-      z-index: 999;
-    }
-    #loginScreen {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: linear-gradient(to right,#f8bbd0,#fce4ec);
-      z-index: 9999;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    #loginScreen h2 {
-      color: #d81b60;
-      margin-bottom: 10px;
-    }
-    #loginScreen input {
-      padding: 10px;
-      border-radius: 10px;
-      border: 2px solid #f06292;
-      width: 80%;
-      max-width: 300px;
-      margin: 10px;
-    }
-    #loginScreen button {
-      padding: 10px 20px;
-      background-color: #ff8fa3;
-      color: white;
-      border: none;
-      border-radius: 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    #loginScreen button:hover {
-      background-color: #ff6b89;
-    }
+  /* 🌸 Toàn bộ trang */
+body {
+  font-family: 'Quicksand', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #ffe4f1, #f8bbd0);
+  color: #880e4f;
+  overflow-x: hidden;
+  transition: background 1s ease;
+}
+
+/* 💖 Màn hình đăng nhập */
+#loginScreen {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(to right,#f8bbd0,#fce4ec);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#loginScreen h2 {
+  color: #d81b60;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+#loginScreen input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #f06292;
+  width: 80%;
+  max-width: 300px;
+  margin: 10px;
+  font-size: 16px;
+}
+
+#loginScreen button {
+  padding: 10px 20px;
+  background-color: #ff8fa3;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background 0.3s ease;
+}
+
+#loginScreen button:hover {
+  background-color: #ff6b89;
+}
+
+/* 🧸 Header */
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff0f6;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid #f48fb1;
+  object-fit: cover;
+  box-shadow: 0 0 15px #f06292;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.chuc {
+  font-size: 16px;
+  color: #d81b60;
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* 🕒 Thời gian */
+.timeBox {
+  text-align: center;
+  font-size: 16px;
+  margin-top: 10px;
+  color: #6a1b9a;
+}
+
+/* 📅 Dropdown và nút */
+select, button {
+  display: block;
+  width: 90%;
+  max-width: 400px;
+  margin: 15px auto;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 12px;
+  border: 2px solid #f06292;
+  background-color: #fff;
+  color: #d81b60;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #fce4ec;
+}
+
+/* 🍽️ Thực đơn */
+.menu {
+  max-width: 500px;
+  margin: 20px auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  border: 2px solid #f8bbd0;
+}
+
+.meal {
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #fce4ec;
+  border-radius: 12px;
+  border-left: 5px solid #ec407a;
+}
+
+.meal h3 {
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: #ad1457;
+}
+
+.meal p {
+  margin: 0;
+  font-size: 15px;
+}
+
+/* 💌 Lời yêu thương */
+.loveMessage {
+  text-align: center;
+  font-size: 16px;
+  color: #c2185b;
+  margin-top: 10px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* 💬 Popup */
+.popup {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff0f6;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  font-size: 18px;
+  color: #d81b60;
+  display: none;
+  z-index: 999;
+}
+
+/* 💖 Trái tim bay */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 24px;
+  animation: floatUp 6s infinite ease-in;
+  color: #ff5e7e;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+}
+
+/* 📝 Ghi chú */
+.noteBox {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff0f6;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.noteBox textarea {
+  width: 100%;
+  height: 100px;
+  padding: 12px;
+  font-size: 15px;
+  border-radius: 12px;
+  border: 2px solid #f48fb1;
+  resize: none;
+  margin-bottom: 10px;
+}
+#noteSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  padding: 20px;
+  background: linear-gradient(to right, #fce4ec, #f8bbd0);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#noteSection h3 {
+  font-size: 20px;
+  color: #880e4f;
+  margin-bottom: 10px;
+}
+
+#dailyNote {
+  width: 100%;
+  max-width: 360px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid #880e4f;
+  font-size: 16px;
+  resize: none;
+  margin-bottom: 12px;
+}
+
+#noteSection button {
+  padding: 10px 20px;
+  margin: 6px;
+  border: none;
+  border-radius: 10px;
+  background-color: #d81b60;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#noteSection button:hover {
+  background-color: #c2185b;
+}
+
+
+/* 📆 Lịch */
+#calendarContainer {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.day {
+  padding: 15px;
+  border-radius: 12px;
+  background: #fce4ec;
+  color: #880e4f;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.day.checked {
+  background: #f8bbd0;
+  color: white;
+}
+
+.day.checked::after {
+  content: "💖";
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+/* 👣 Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #6a1b9a;
+  background-color: #fff0f6;
+}
+
+
   </style>
 </head>
 <body>
@@ -171,16 +320,31 @@
   <header style="display:none;" id="mainContent">
     <img src="img/mn.jpg" alt="Bé Minh Nguyệt" class="avatar" />
     <h1>Thực Đơn Giảm Cân Cho Bé Minh Nguyệt 💖</h1>
-    <p class="chuc">💌 Chúc bé Minh Nguyệt giảm cân thành công, xinh đẹp rạng ngời! Anh iu em 😘</p>
+    <p class="chuc" id="dailyGreeting">💌 Chúc bé một ngày tuyệt vời!</p>
+    <div class="timeBox" id="timeDisplay"></div>
   </header>
 
   <select id="daySelector" style="display:none;"></select>
   <button onclick="sendLove()" style="display:none;">💖 Gửi lời yêu thương</button>
   <div class="loveMessage" id="loveMessage"></div>
   <div class="menu" id="menuDisplay"></div>
+<div class="noteBox" id="noteSection" style="display:none; text-align:center; margin-top:20px;">
+  <h3>📝 Ghi chú hôm nay</h3>
+  <textarea id="dailyNote" placeholder="Bé muốn ghi gì nè..." rows="4" cols="50" style="padding:10px; border-radius:8px; border:1px solid #ccc;"></textarea><br><br>
+  <button onclick="saveNote()" style="margin-right:10px;">💾 Lưu ghi chú</button>
+  <button onclick="deleteNote()">🗑️ Xóa ghi chú</button>
+</div>
+
   <div class="popup" id="popup">💌 Bé Minh Nguyệt ơi, anh iu em nhiều lắm 😘</div>
 
-  <div style="text-align: center; margin-top: 30px;">
+<div style="text-align:center; margin-top:30px;">
+  <h2 id="calendarTitle">📅 Lịch của bé Minh Nguyệt</h2>
+  <select id="monthSelector"></select>
+  <select id="yearSelector"></select>
+  <div id="calendarContainer"></div>
+</div>
+
+ <div style="text-align: center; margin-top: 30px;">
     <button onclick="document.getElementById('bgMusic').play()">🎵 Phát nhạc</button>
     <button onclick="document.getElementById('bgMusic').pause()">🔇 Tắt nhạc</button>
   </div>
@@ -189,174 +353,388 @@
     <source src="piano-love-song-six-398564.mp3" type="audio/mpeg">
   </audio>
 
+
   <footer>
     ✨ Bé Minh Nguyệt là công chúa xinh đẹp nhất hệ mặt trời ✨<br />
     Made with 💗 by anh Huyphat
   </footer>
 <script>
-  const menus = {
-    "🌞 Thứ 2": {
-      "Sáng": "🍌 Chuối + 🥛 Sữa đậu nành",
-      "Trưa": "🍚 Cơm gạo lứt + 🥚 Trứng luộc + 🥦 Rau luộc",
-      "Chiều": "🍶 Sữa chua không đường",
-      "Tối": "🍲 Canh rau + 🍗 Ức gà áp chảo"
-    },
-    "🌼 Thứ 3": {
-      "Sáng": "🥣 Yến mạch + Chuối + 🌱 Hạt chia",
-      "Trưa": "🍚 Cơm + 🐟 Cá hấp + 🥬 Rau xào",
-      "Chiều": "🍎 Trái cây",
-      "Tối": "🥗 Salad + 🥚 Trứng luộc + 🍠 Khoai lang"
-    },
-    "🌸 Thứ 4": {
-      "Sáng": "🍠 Khoai lang + 🥛 Sữa tươi không đường",
-      "Trưa": "🍚 Cơm + 🍅 Đậu hũ sốt cà + 🥦 Rau luộc",
-      "Chiều": "🥕 Nước ép cà rốt",
-      "Tối": "🍲 Canh bí đỏ + 🍖 Thịt nạc + 🍚 Cơm"
-    },
-    "🌺 Thứ 5": {
-      "Sáng": "🍞 Bánh mì đen + 🍳 Trứng ốp la",
-      "Trưa": "🍚 Cơm + 🍗 Thịt gà + 🥬 Rau cải",
-      "Chiều": "🍏 Táo",
-      "Tối": "🥗 Salad + 🍠 Khoai lang + 🍶 Sữa chua"
-    },
-    "🌻 Thứ 6": {
-      "Sáng": "🥣 Yến mạch + 🍶 Sữa chua + 🍓 Trái cây",
-      "Trưa": "🍚 Cơm + 🐟 Cá kho + 🥦 Rau luộc",
-      "Chiều": "🥛 Sữa đậu nành",
-      "Tối": "🍲 Canh rau + 🥚 Trứng luộc + 🍚 Cơm gạo lứt"
-    },
-    "🌷 Thứ 7": {
-      "Sáng": "🍌 Chuối + 🥛 Sữa tươi",
-      "Trưa": "🍚 Cơm + 🥩 Thịt bò + 🥦 Rau luộc",
-      "Chiều": "🍊 Cam hoặc táo",
-      "Tối": "🥗 Salad + 🍠 Khoai lang + 🥚 Trứng"
-    },
-    "🌈 Chủ Nhật": {
-      "Sáng": "🍞 Bánh mì đen + 🥛 Sữa đậu nành",
-      "Trưa": "🍚 Cơm + 🐟 Cá hấp + 🥬 Rau xào",
-      "Chiều": "🍹 Nước ép trái cây",
-      "Tối": "🍲 Canh rau + 🍖 Thịt nạc + 🍚 Cơm gạo lứt"
-    }
-  };
+const menus = {
+  "Thứ 2": { icon: "🦁", meals: { Sáng: "🍌 Chuối + 🥛 Sữa đậu nành", Trưa: "🍚 Cơm gạo lứt + 🥚 Trứng luộc + 🥦 Rau luộc", Chiều: "🍶 Sữa chua không đường", Tối: "🍲 Canh rau + 🍗 Ức gà áp chảo" } },
+  "Thứ 3": { icon: "🐼", meals: { Sáng: "🥣 Yến mạch + Chuối + 🌱 Hạt chia", Trưa: "🍚 Cơm + 🐟 Cá hấp + 🥬 Rau xào", Chiều: "🍎 Trái cây", Tối: "🥗 Salad + 🥚 Trứng luộc + 🍠 Khoai lang" } },
+  "Thứ 4": { icon: "🐰", meals: { Sáng: "🍠 Khoai lang + 🥛 Sữa tươi không đường", Trưa: "🍚 Cơm + 🍅 Đậu hũ sốt cà + 🥦 Rau luộc", Chiều: "🥕 Nước ép cà rốt", Tối: "🍲 Canh bí đỏ + 🍖 Thịt nạc + 🍚 Cơm" } },
+  "Thứ 5": { icon: "🦊", meals: { Sáng: "🍞 Bánh mì đen + 🍳 Trứng ốp la", Trưa: "🍚 Cơm + 🍗 Thịt gà + 🥬 Rau cải", Chiều: "🍏 Táo", Tối: "🥗 Salad + 🍠 Khoai lang + 🍶 Sữa chua" } },
+  "Thứ 6": { icon: "🐥", meals: { Sáng: "🥣 Yến mạch + 🍶 Sữa chua + 🍓 Trái cây", Trưa: "🍚 Cơm + 🐟 Cá kho + 🥦 Rau luộc", Chiều: "🥛 Sữa đậu nành", Tối: "🍲 Canh rau + 🥚 Trứng luộc + 🍚 Cơm gạo lứt" } },
+  "Thứ 7": { icon: "🐶", meals: { Sáng: "🍌 Chuối + 🥛 Sữa tươi", Trưa: "🍚 Cơm + 🥩 Thịt bò + 🥦 Rau luộc", Chiều: "🍊 Cam hoặc táo", Tối: "🥗 Salad + 🍠 Khoai lang + 🥚 Trứng" } },
+  "Chủ Nhật": { icon: "🐱", meals: { Sáng: "🍞 Bánh mì đen + 🥛 Sữa đậu nành", Trưa: "🍚 Cơm + 🐟 Cá hấp + 🥬 Rau xào", Chiều: "🍹 Nước ép trái cây", Tối: "🍲 Canh rau + 🍖 Thịt nạc + 🍚 Cơm gạo lứt" } }
+};
 
-  const menuDisplay = document.getElementById("menuDisplay");
-  const daySelector = document.getElementById("daySelector");
-  const loveMessage = document.getElementById("loveMessage");
-  const popup = document.getElementById("popup");
+const greetings = {
+  "Thứ 2": "🌞 Thứ 2 năng lượng tích cực nha bé iu 😘",
+  "Thứ 3": "🌼 Thứ 3 nhẹ nhàng như nắng sớm 💖",
+  "Thứ 4": "🌸 Thứ 4 rạng rỡ như hoa anh đào 🌸",
+  "Thứ 5": "🌺 Thứ 5 tươi tắn như nụ cười bé Nguyệt 😚",
+  "Thứ 6": "🌻 Thứ 6 bung xõa cuối tuần nha bé iu 💃",
+  "Thứ 7": "🌷 Thứ 7 chill nhẹ cùng anh Huyphat 😘",
+  "Chủ Nhật": "🌈 Chủ Nhật nghỉ ngơi, yêu thương bản thân nha bé 💌"
+};
 
-  function showMenu(day) {
-    const meals = menus[day];
-    menuDisplay.innerHTML = "";
-    for (let meal in meals) {
-      const div = document.createElement("div");
-      div.className = "meal";
-      div.innerHTML = `<h3>${meal}</h3><p>${meals[meal]}</p>`;
-      menuDisplay.appendChild(div);
-    }
-    showGame(meals);
-  }
+const surpriseMeals = {
+  "Thứ 2": "🍮 Pudding hạt chia ít đường",
+  "Thứ 3": "🍓 Sinh tố dâu không đường",
+  "Thứ 4": "🍰 Bánh flan nhà làm",
+  "Thứ 5": "🍜 Miến gà rau củ",
+  "Thứ 6": "🥗 Salad trứng cút",
+  "Thứ 7": "🍧 Sữa chua trái cây",
+  "Chủ Nhật": "🍠 Khoai lang nướng mật ong"
+};
+const loveMessages = {
+  "Thứ 2": "💌 Bé Minh Nguyệt ơi, tuần mới bắt đầu rồi nè! Anh Huyphat chúc bé tràn đầy năng lượng và luôn mỉm cười nha 😘",
+  "Thứ 3": "🌼 Bé ơi, hôm nay nhẹ nhàng như nắng sớm. Anh Huyphat gửi bé một cái ôm ảo thật ấm áp nha 💖",
+  "Thứ 4": "🌸 Giữa tuần rồi đó bé! Anh Huyphat tin bé sẽ vượt qua mọi thử thách với nụ cười xinh đẹp 😚",
+  "Thứ 5": "🌺 Bé Minh Nguyệt ơi, hôm nay anh gửi bé một bó hoa tinh thần. Bé nhớ yêu bản thân và ăn uống đầy đủ nha 💌",
+  "Thứ 6": "🌻 Cuối tuần gần tới rồi đó bé! Anh Huyphat chúc bé một ngày thật chill và dễ thương như chính bé vậy 😘",
+  "Thứ 7": "🎉 Thứ 7 bung xõa nha bé iu! Anh Huyphat luôn ở đây cổ vũ bé từng khoảnh khắc 💖",
+  "Chủ Nhật": "🌈 Chủ Nhật là ngày nghỉ ngơi nè bé! Anh Huyphat chúc bé thư giãn, ngủ ngon, và mơ đẹp nha 😚"
+};
 
-  function sendLove() {
-    const messages = [
-      "💖 Bé Nguyệt ơi, anh Huyphat iu em nhiều lắm, cố lên nha!",
-      "🌸 Mỗi ngày một chút, bé sẽ xinh đẹp như công chúa!",
-      "💌 Anh luôn bên cạnh bé, cùng nhau giảm cân nha!",
-      "✨ Bé Nguyệt là ánh sáng của đời anh!",
-      "🥰 Bé là lý do anh cười mỗi ngày!"
-    ];
-    const randomMsg = messages[Math.floor(Math.random() * messages.length)];
-    loveMessage.innerText = randomMsg;
+function populateDaySelector() {
+  daySelector.innerHTML = "";
 
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.style.left = Math.random() * window.innerWidth + "px";
-    heart.innerText = "💖";
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 6000);
-  }
-
-  function enterSite() {
-    const name = document.getElementById("nameInput").value.trim();
-    if (name) {
-      document.getElementById("loginScreen").style.display = "none";
-      document.getElementById("mainContent").style.display = "block";
-      daySelector.style.display = "block";
-      document.querySelector("button[onclick='sendLove()']").style.display = "block";
-
-      const welcome = document.createElement("div");
-      welcome.innerText = `💖 Chào bé ${name}, anh Huyphat đã chuẩn bị thực đơn riêng cho bé nè!`;
-      welcome.style.textAlign = "center";
-      welcome.style.marginTop = "20px";
-      welcome.style.color = "#d81b60";
-      document.body.appendChild(welcome);
-      showMenu("🌞 Thứ 2");
-    } else {
-      alert("Bé ơi, nhập tên trước khi vào nha 😘");
-    }
-  }
-
-  daySelector.innerHTML = Object.keys(menus).map(day => `<option value="${day}">${day}</option>`).join("");
-  daySelector.addEventListener("change", (e) => {
-    showMenu(e.target.value);
-    loveMessage.innerText = "";
+  Object.keys(menus).forEach(day => {
+    const option = document.createElement("option");
+    option.value = day;
+    option.innerText = `${menus[day].icon} ${day}`;
+    daySelector.appendChild(option);
   });
+}
 
-  setInterval(() => {
-    const heart = document.createElement('div');
-    heart.className = 'heart';
-    heart.style.left = Math.random() * window.innerWidth + 'px';
-    heart.innerText = '💗';
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 6000);
-  }, 800);
 
-  setTimeout(() => {
-    popup.style.display = "block";
-    setTimeout(() => {
-      popup.style.display = "none";
-    }, 5000);
-  }, 10000);
+function updateClock() {
+  const now = new Date();
 
-  const hour = new Date().getHours();
+  // Lấy thứ hiện tại đúng chuẩn
+  const dayNames = ["Chủ Nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"];
+  const currentDay = dayNames[now.getDay()];
+  const icon = menus[currentDay]?.icon || "🐻"; // fallback nếu thiếu
+
+  // Lấy ngày giờ hiện tại
+  const time = now.toLocaleTimeString("vi-VN");
+  const date = now.toLocaleDateString("vi-VN");
+
+  // Hiển thị thời gian và lời chào
+  timeDisplay.innerText = `🕒 ${icon} ${currentDay}, ${date} - ${time}`;
+  dailyGreeting.innerText = greetings[currentDay] || "🌞 Chúc bé một ngày tuyệt vời nha 😘";
+
+  // Đổi màu nền theo giờ
+  const hour = now.getHours();
   if (hour >= 18 || hour < 6) {
     document.body.style.background = "linear-gradient(to right, #d1c4e9, #b39ddb)";
   } else {
     document.body.style.background = "linear-gradient(to right, #ffe4f1, #f8bbd0)";
   }
+}
 
-  // Mini game: Bé chọn món yêu thích
-  function showGame(meals) {
-    const gameDiv = document.createElement("div");
-    gameDiv.style.textAlign = "center";
-    gameDiv.style.marginTop = "20px";
-    gameDiv.innerHTML = "<h3>🎮 Bé chọn món yêu thích hôm nay:</h3>";
 
-    Object.values(meals).forEach((meal, index) => {
-      const btn = document.createElement("button");
-      btn.innerText = meal;
-      btn.style.margin = "5px";
-      btn.onclick = () => {
-        alert(`🥰 Bé thích món "${meal}" hả? Anh sẽ nấu món đó cho bé liền!`);
-      };
-      gameDiv.appendChild(btn);
-    });
 
-    menuDisplay.appendChild(gameDiv);
+
+setInterval(updateClock, 1000);
+
+function enterSite() {
+  const nameInput = document.getElementById("nameInput");
+  const name = nameInput.value.trim();
+
+  if (!name) {
+    alert("Bé ơi, nhập tên trước khi vào nha 😘");
+    return;
   }
 
-  // Món bất ngờ hôm nay
-  const surpriseMeals = [
-    "🍰 Bánh flan ít đường",
-    "🍓 Sinh tố dâu không đường",
-    "🥗 Salad trứng cút",
-    "🍜 Miến gà rau củ",
-    "🍮 Pudding hạt chia"
-  ];
+  // Lưu tên vào localStorage
+  localStorage.setItem("minhnguyet_name", name);
+
+  // Hiển thị giao diện chính
+  document.getElementById("loginScreen").style.display = "none";
+  document.getElementById("mainContent").style.display = "block";
+  daySelector.style.display = "block";
+  document.querySelector("button[onclick='sendLove()']").style.display = "block";
+  noteSection.style.display = "block";
+
+  // Lời chào dễ thương
+  const welcome = document.createElement("div");
+  welcome.innerHTML = `💖 <b>Chào bé ${name}</b>, anh Huyphat đã chuẩn bị thực đơn riêng cho bé nè!`;
+  welcome.style.textAlign = "center";
+  welcome.style.marginTop = "20px";
+  welcome.style.color = "#d81b60";
+  welcome.style.fontSize = "18px";
+  document.body.appendChild(welcome);
+
+  // Tạo dropdown ngày có icon
+  populateDaySelector();
+
+  // Gắn sự kiện khi bé chọn ngày
+  daySelector.onchange = () => {
+    const selectedDay = daySelector.value;
+    showMenu(selectedDay);
+    loadNote(selectedDay);
+  };
+
+  // Hiển thị thực đơn đúng ngày hiện tại
+  const today = new Date();
+  const dayNames = ["Chủ Nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"];
+  const currentDay = dayNames[today.getDay()];
+  daySelector.value = currentDay;
+  showMenu(currentDay);
+  loadNote(currentDay);
+}
+
+
+
+function showMenu(day) {
+  menuDisplay.innerHTML = "";
+
+  const meals = menus[day].meals;
+  for (let meal in meals) {
+    const div = document.createElement("div");
+    div.className = "meal";
+    div.innerHTML = `<h3>${meal}</h3><p>${meals[meal]}</p>`;
+    menuDisplay.appendChild(div);
+  }
+
   const surprise = document.createElement("div");
-  surprise.innerText = "🎁 Món bất ngờ hôm nay: " + surpriseMeals[Math.floor(Math.random() * surpriseMeals.length)];
   surprise.style.textAlign = "center";
-  surprise.style.marginTop = "20px";
+  surprise.style.marginTop = "15px";
   surprise.style.color = "#d81b60";
-  document.body.appendChild(surprise);
+  surprise.style.fontSize = "16px";
+  surprise.innerHTML = `🎁 <b>Món bất ngờ hôm nay:</b> ${surpriseMeals[day]}<br>💌 Bé thử món này nha, vừa ngon vừa nhẹ nhàng 😘`;
+  menuDisplay.appendChild(surprise);
+
+  showGame(meals);
+  loadNote(day);
+}
+
+function saveNote() {
+  const day = daySelector.value;
+  const now = new Date();
+  const dateStr = now.toLocaleDateString("vi-VN");
+  const timeStr = now.toLocaleTimeString("vi-VN");
+  const fullDate = `${menus[day].icon} ${day}, ${dateStr} - ${timeStr}`;
+
+  const noteContent = dailyNote.value.trim();
+  if (!noteContent) {
+    alert("📌 Bé chưa ghi gì hết đó nha!");
+    return;
+  }
+
+  const noteData = {
+    content: noteContent,
+    timestamp: fullDate
+  };
+
+  localStorage.setItem("note_" + day, JSON.stringify(noteData));
+
+  const msg = document.createElement("div");
+  msg.className = "popup";
+  msg.innerHTML = `✅ Ghi chú đã lưu cho <b>${day}</b> lúc <i>${timeStr}</i><br>💌 Bé nhớ giữ tinh thần tích cực nha 😘`;
+  document.body.appendChild(msg);
+  msg.style.display = "block";
+  setTimeout(() => {
+    msg.style.display = "none";
+    msg.remove();
+  }, 4000);
+}
+
+function loadNote(day) {
+  const saved = localStorage.getItem("note_" + day);
+  if (saved) {
+    const noteData = JSON.parse(saved);
+    dailyNote.value = noteData.content;
+
+    const info = document.createElement("div");
+    info.style.textAlign = "center";
+    info.style.marginTop = "10px";
+    info.style.color = "#6a1b9a";
+    info.innerHTML = `🗒️ Ghi chú đã lưu cho <b>${day}</b> lúc <i>${noteData.timestamp}</i>`;
+    noteSection.appendChild(info);
+    setTimeout(() => info.remove(), 5000);
+  } else {
+    dailyNote.value = "";
+  }
+}
+
+function deleteNote() {
+  const day = daySelector.value;
+  const confirmDelete = confirm(`🗑️ Bé có chắc muốn xóa ghi chú của ${day} không?`);
+  if (confirmDelete) {
+    localStorage.removeItem("note_" + day);
+    dailyNote.value = "";
+    alert(`✅ Ghi chú của ${day} đã được xóa rồi nha bé 😘`);
+  }
+}
+function sendLove() {
+  const now = new Date();
+  const dayNames = ["Chủ Nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"];
+  const currentDay = dayNames[now.getDay()];
+  const message = loveMessages[currentDay] || "💖 Bé Minh Nguyệt ơi, anh Huyphat luôn thương bé mỗi ngày 😘";
+
+  const msg = document.createElement("div");
+  msg.className = "popup";
+  msg.innerHTML = message;
+  document.body.appendChild(msg);
+  msg.style.display = "block";
+  setTimeout(() => {
+    msg.style.display = "none";
+    msg.remove();
+  }, 5000);
+
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.style.left = Math.random() * window.innerWidth + "px";
+  heart.innerText = "💖";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}
+
+function showGame(meals) {
+  const gameDiv = document.createElement("div");
+  gameDiv.className = "game";
+  gameDiv.innerHTML = "<h3>🎮 Bé chọn món yêu thích hôm nay nè!</h3>";
+
+  Object.values(meals).forEach(meal => {
+    const btn = document.createElement("button");
+    btn.innerText = meal;
+    btn.onclick = () => {
+      const popupMsg = document.createElement("div");
+      popupMsg.className = "popup";
+      popupMsg.innerHTML = `🎉 Bé chọn món <b>${meal}</b> rồi đó nha!<br>💌 Món này sẽ giúp bé khỏe mạnh và xinh đẹp hơn mỗi ngày 😘`;
+      document.body.appendChild(popupMsg);
+      popupMsg.style.display = "block";
+      setTimeout(() => {
+        popupMsg.style.display = "none";
+        popupMsg.remove();
+      }, 4000);
+
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.innerText = "💖";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    };
+    gameDiv.appendChild(btn);
+  });
+
+  menuDisplay.appendChild(gameDiv);
+}
+setInterval(() => {
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.style.left = Math.random() * window.innerWidth + 'px';
+  heart.innerText = '💗';
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}, 800);
+
+setTimeout(() => {
+  const popup = document.createElement("div");
+  popup.className = "popup";
+  popup.innerHTML = `🌟 Bé Minh Nguyệt ơi, hôm nay bé đã làm rất tốt rồi đó nha!<br>💖 Anh Huyphat luôn ở đây ủng hộ bé 😘`;
+  document.body.appendChild(popup);
+  popup.style.display = "block";
+  setTimeout(() => {
+    popup.style.display = "none";
+    popup.remove();
+  }, 5000);
+}, 10000);
+
+
+const monthNames = [
+  "🌸 Tháng 1", "🌼 Tháng 2", "🌞 Tháng 3", "🌷 Tháng 4",
+  "🌺 Tháng 5", "🌈 Tháng 6", "🍉 Tháng 7", "🌻 Tháng 8",
+  "🍂 Tháng 9", "🎃 Tháng 10", "❄️ Tháng 11", "🎄 Tháng 12"
+];
+
+function setupSelectors() {
+  const monthSelector = document.getElementById("monthSelector");
+  const yearSelector = document.getElementById("yearSelector");
+  const now = new Date();
+
+  // Tạo dropdown tháng
+  monthNames.forEach((name, index) => {
+    const option = document.createElement("option");
+    option.value = index;
+    option.innerText = name;
+    monthSelector.appendChild(option);
+  });
+
+  // Tạo dropdown năm với icon
+  const yearIcons = ["📅", "🎉", "💖", "🌟", "🎀", "🧁", "🍭", "🎈", "🪄", "🍰", "🧸", "🎶", "🌈", "🦄", "💫"];
+  for (let i = 0; i < 7; i++) {
+    const y = now.getFullYear() - 3 + i;
+    const option = document.createElement("option");
+    const icon = yearIcons[i % yearIcons.length];
+    option.value = y;
+    option.innerText = `${icon} Năm ${y}`;
+    yearSelector.appendChild(option);
+  }
+
+  // Khôi phục tháng/năm đã chọn nếu có
+  const savedMonth = localStorage.getItem("calendar_month");
+  const savedYear = localStorage.getItem("calendar_year");
+
+  monthSelector.value = savedMonth !== null ? savedMonth : now.getMonth();
+  yearSelector.value = savedYear !== null ? savedYear : now.getFullYear();
+
+  // Gắn sự kiện thay đổi
+  monthSelector.onchange = () => {
+    localStorage.setItem("calendar_month", monthSelector.value);
+    generateCalendar();
+  };
+
+  yearSelector.onchange = () => {
+    localStorage.setItem("calendar_year", yearSelector.value);
+    generateCalendar();
+  };
+}
+
+function generateCalendar() {
+  const container = document.getElementById("calendarContainer");
+  const title = document.getElementById("calendarTitle");
+  const month = parseInt(document.getElementById("monthSelector").value);
+  const year = parseInt(document.getElementById("yearSelector").value);
+  container.innerHTML = "";
+
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  title.innerText = `📅 ${monthNames[month]} năm ${year}`;
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const dateKey = `${year}-${month + 1}-${day}`;
+    const div = document.createElement("div");
+    div.className = "day";
+    div.innerText = day;
+
+    if (localStorage.getItem("checked_" + dateKey)) {
+      div.classList.add("checked");
+    }
+
+    div.onclick = () => {
+      div.classList.toggle("checked");
+      if (div.classList.contains("checked")) {
+        localStorage.setItem("checked_" + dateKey, "true");
+      } else {
+        localStorage.removeItem("checked_" + dateKey);
+      }
+    };
+
+    container.appendChild(div);
+  }
+}
+
+// Khởi động lịch
+setupSelectors();
+generateCalendar();
+
+
+
 </script>
+</body>
 </html>
