@@ -269,10 +269,10 @@ button:hover {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 10px;
-  max-width: 400px;
-  margin: 20px auto;
-  text-align: center;
+  justify-items: center;
 }
+
+
 
 .day {
   padding: 15px;
@@ -284,6 +284,7 @@ button:hover {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
   position: relative;
+  min-height: 60px;
 }
 
 .day.checked {
@@ -306,6 +307,27 @@ footer {
   color: #6a1b9a;
   background-color: #fff0f6;
 }
+.day.special {
+  background: #ffe0f0;
+  border: 2px dashed #d81b60;
+  position: relative;
+}
+
+.day.special::after {
+  content: "🎂";
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+.stats {
+  background-color: #fff0f6;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-weight: bold;
+  animation: fadeIn 1s ease-in-out;
+}
+
 
 
   </style>
@@ -397,6 +419,15 @@ const loveMessages = {
   "Thứ 7": "🎉 Thứ 7 bung xõa nha bé iu! Anh Huyphat luôn ở đây cổ vũ bé từng khoảnh khắc 💖",
   "Chủ Nhật": "🌈 Chủ Nhật là ngày nghỉ ngơi nè bé! Anh Huyphat chúc bé thư giãn, ngủ ngon, và mơ đẹp nha 😚"
 };
+const morningMessages = [
+  "🌞 Hôm nay bé Minh Nguyệt sẽ cười nhiều hơn 7 lần đó nha 😘",
+  "🍭 Một điều ngọt ngào đang chờ bé ở cuối ngày 💖",
+  "🧸 Ai đó đang nghĩ về bé rất nhiều… và đó là anh Huyphat nè 😚",
+  "🌈 Bé sẽ gặp một khoảnh khắc bất ngờ khiến tim rung rinh 💓",
+  "🎀 Bé sẽ làm được điều mà hôm qua bé còn hơi lo lắng đó nha!",
+  "🍰 Hôm nay là ngày hoàn hảo để ăn món bé thích nhất 😋",
+  "💌 Một tin nhắn dễ thương sẽ đến với bé… có thể là từ anh Huyphat đó 😘"
+];
 
 function populateDaySelector() {
   daySelector.innerHTML = "";
@@ -439,6 +470,25 @@ function updateClock() {
 
 
 setInterval(updateClock, 1000);
+
+function applyThemeByDay() {
+  const dayThemes = {
+    "Thứ 2": "linear-gradient(to right, #ffdde1, #ee9ca7)",
+    "Thứ 3": "linear-gradient(to right, #ffd3b6, #ffaaa5)",
+    "Thứ 4": "linear-gradient(to right, #fff5ba, #fceabb)",
+    "Thứ 5": "linear-gradient(to right, #d0f0c0, #a8e6cf)",
+    "Thứ 6": "linear-gradient(to right, #e1bee7, #ce93d8)",
+    "Thứ 7": "linear-gradient(to right, #b3e5fc, #81d4fa)",
+    "Chủ Nhật": "linear-gradient(to right, #f8bbd0, #ffe4f1)"
+  };
+
+  const dayNames = ["Chủ Nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"];
+  const today = new Date();
+  const currentDay = dayNames[today.getDay()];
+  const theme = dayThemes[currentDay];
+
+  document.body.style.background = theme;
+}
 
 function enterSite() {
   const nameInput = document.getElementById("nameInput");
@@ -485,6 +535,8 @@ function enterSite() {
   daySelector.value = currentDay;
   showMenu(currentDay);
   loadNote(currentDay);
+  applyThemeByDay();
+  showMorningMessage();
 }
 
 
@@ -732,8 +784,129 @@ function generateCalendar() {
 // Khởi động lịch
 setupSelectors();
 generateCalendar();
+function generateCalendar() {
+  const container = document.getElementById("calendarContainer");
+  const title = document.getElementById("calendarTitle");
+  const month = parseInt(document.getElementById("monthSelector").value);
+  const year = parseInt(document.getElementById("yearSelector").value);
+  container.innerHTML = "";
+
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  title.innerText = `📅 ${monthNames[month]} năm ${year}`;
+
+  // 🎂 Danh sách sự kiện đặc biệt
+  const specialDates = {
+    [`${year}-3-27`]: {
+      label: "🎂 Sinh nhật bé Minh Nguyệt",
+      message: `
+        💖 Hôm nay là ngày đặc biệt nhất trong năm – sinh nhật bé Minh Nguyệt đó nha 😘<br><br>
+        Anh Huyphat chúc bé luôn xinh đẹp, đáng yêu, và hạnh phúc từng giây từng phút.<br>
+        Mong bé luôn cười thật tươi, sống thật vui, và được yêu thương nhiều nhiều 💝<br><br>
+        🎁 Bé mở trang này là nhận được món quà tinh thần từ anh rồi nè – một cái ôm ảo thật ấm áp 🤗
+      `
+    }
+  };
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const dateKey = `${year}-${month + 1}-${day}`;
+    const div = document.createElement("div");
+    div.className = "day";
+    div.innerText = day;
+
+    // 🎉 Nếu là ngày đặc biệt
+    if (specialDates[dateKey]) {
+      div.classList.add("special");
+      div.title = specialDates[dateKey].label;
+    }
+
+    // ✅ Nếu đã tích
+    if (localStorage.getItem("checked_" + dateKey)) {
+      div.classList.add("checked");
+    }
+
+    // 📌 Khi click vào ngày
+    div.onclick = () => {
+      div.classList.toggle("checked");
+      if (div.classList.contains("checked")) {
+        localStorage.setItem("checked_" + dateKey, "true");
+      } else {
+        localStorage.removeItem("checked_" + dateKey);
+      }
+
+      // 🎂 Hiện popup nếu là ngày đặc biệt
+      if (specialDates[dateKey]) {
+        showBirthdayPopup(specialDates[dateKey].message);
+      }
+
+      // 📝 Ghi chú riêng từng ngày
+      const note = prompt("Bé muốn ghi gì cho ngày " + day + " nè?");
+      if (note !== null) {
+        localStorage.setItem("note_" + dateKey, note);
+      }
+
+      // 📈 Cập nhật lại thống kê sau khi click
+      updateStats(month, year);
+    };
+
+    container.appendChild(div);
+  }
+
+  // 📈 Tạo khung thống kê ban đầu
+  const stats = document.createElement("div");
+  stats.id = "statsBox";
+  stats.className = "stats";
+  stats.style.textAlign = "center";
+  stats.style.marginTop = "10px";
+  stats.style.color = "#d81b60";
+  container.appendChild(stats);
+
+  // 📈 Gọi cập nhật thống kê ban đầu
+  updateStats(month, year);
+}
+function updateStats(month, year) {
+  let count = 0;
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const key = `${year}-${month + 1}-${day}`;
+    if (localStorage.getItem("checked_" + key)) count++;
+  }
+
+  const stats = document.getElementById("statsBox");
+  if (stats) {
+    stats.innerHTML = `💡 Bé đã tích <b>${count}</b> ngày trong tháng này rồi đó nha 😘`;
+
+    // 🎁 Nếu tích đủ 7 ngày → hiện thưởng
+    if (count >= 7) {
+      showBirthdayPopup("🎉 Bé Minh Nguyệt đã tích đủ 7 ngày rồi đó nha! Anh Huyphat thưởng bé một cái ôm thật to và một nụ hôn ảo dễ thương 😘");
+    }
+  }
+}
 
 
+function showBirthdayPopup(message) {
+  const popup = document.createElement("div");
+  popup.className = "popup";
+  popup.innerHTML = message;
+  document.body.appendChild(popup);
+  popup.style.display = "block";
+
+  setTimeout(() => {
+    popup.style.display = "none";
+    popup.remove();
+  }, 7000);
+}
+
+function showMorningMessage() {
+  const now = new Date();
+  const hour = now.getHours();
+
+  if (hour < 12) {
+    const msg = morningMessages[Math.floor(Math.random() * morningMessages.length)];
+    const box = document.getElementById("morningMessageBox");
+    box.innerHTML = `🔮 ${msg}`;
+  }
+}
 
 </script>
 </body>
